@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="世祥企業社 S.X，提供3D列印、3D建模、客製化設計與產品開發服務。">
+  <title>S.X 世祥企業社｜3D Printing & Product Design</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: #141414;
+      --white: #f5f5f5;
+      --gray: #a1a1a1;
+      --line: #303030;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(10,10,10,.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span { color: var(--gray); }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      font-size: 13px;
+      color: #d0d0d0;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(ellipse at 85% 35%, #262626 0%, transparent 45%),
+        linear-gradient(135deg, #0a0a0a, #111);
+    }
+
+    .eyebrow {
+      color: #aaa;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: clamp(40px, 7vw, 76px);
+      line-height: 1.12;
+      letter-spacing: -2px;
+    }
+
+    h1 span { color: #999; }
+
+    .hero p {
+      max-width: 560px;
+      color: #b8b8b8;
+      font-size: 16px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border: 1px solid #eee;
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .btn.primary {
+      color: #080808;
+      background: #f5f5f5;
+    }
+
+    .btn:hover {
+      background: #bdbdbd;
+      color: #080808;
+    }
+
+    section { padding: 85px 0; }
+
+    .section-head { margin-bottom: 35px; }
+
+    .section-head h2 {
+      margin: 8px 0;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .section-head p {
+      max-width: 650px;
+      color: var(--gray);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .card .number {
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .card h3 { margin: 18px 0 8px; }
+
+    .card p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .products { background: #101010; }
+
+    .product-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #151515;
+    }
+
+    .product-visual {
+      min-height: 180px;
+      display: grid;
+      place-items: center;
+      padding: 25px;
+      background:
+        linear-gradient(135deg, #1c1c1c, #101010);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .product-visual span {
+      color: #777;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .product-info { padding: 20px; }
+
+    .product-info h3 { margin: 0 0 8px; }
+
+    .product-info p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 13px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 4px 9px;
+      border: 1px solid #454545;
+      color: #ccc;
+      font-size: 11px;
+    }
+
+    .stl-banner {
+      padding: 35px;
+      border: 1px solid #444;
+      background: linear-gradient(120deg, #191919, #0c0c0c);
+    }
+
+    .stl-banner p {
+      max-width: 650px;
+      color: var(--gray);
+    }
+
+    .contact { border-top: 1px solid var(--line); }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+      color: #888;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px 0;
+        gap: 12px;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .hero { min-height: 480px; }
+
+      section { padding: 60px 0; }
+
+      .grid { grid-template-columns: 1fr; }
+
+      .stl-banner { padding: 24px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">S.X <span>世祥企業社</span></a>
+      <div class="nav-links">
+        <a href="#about">關於我們</a>
+        <a href="#services">服務項目</a>
+        <a href="#products">產品展示</a>
+        <a href="#stl">STL 商店</a>
+        <a href="#contact">聯絡我們</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">S.X DESIGN & MANUFACTURING</div>
+        <h1>IDEAS INTO<br><span>REALITY.</span></h1>
+        <p>
+          世祥企業社 S.X 專注於 3D 列印、3D 建模與產品開發。
+          從設計構想到實體製作，將創意轉化為實用的產品。
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#products">探索產品 ↗</a>
+          <a class="btn" href="#services">了解服務</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">ABOUT S.X</div>
+          <h2>設計不只停留在想法。</h2>
+          <p>
+            我們致力於產品設計與 3D 列印應用，
+            透過數位建模與實體打樣，協助創意實現。
+            從個人創作到產品開發，持續探索製造的更多可能。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">WHAT WE DO</div>
+          <h2>服務項目</h2>
+          <p>依照不同需求，提供設計、建模與實體製作服務。</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="number">01 / PRINTING</div>
+            <h3>3D 列印</h3>
+            <p>提供產品打樣、功能零件及客製化列印製作。</p>
+          </article>
+
+          <article class="card">
+            <div class="number">02 / MODELING</div>
+            <h3>3D 建模</h3>
+            <p>依照需求進行模型設計，協助建立數位 3D 檔案。</p>
+          </article>
+
+          <article class="card">
+            <div class="number">03 / DEVELOPMENT</div>
+            <h3>產品開發</h3>
+            <p>從構想、模型設計到打樣，逐步完成產品開發。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">SELECTED WORKS</div>
+          <h2>產品與作品</h2>
+          <p>展示世祥自行開發的產品。此處目前為展示版，之後可替換成你的實際產品照片。</p>
+        </div>
+
+        <div class="grid">
+          <article class="product-card">
+            <div class="product-visual"><span>PRODUCT / 001</span></div>
+            <div class="product-info">
+              <h3>客製化收納產品</h3>
+              <p>依照使用情境設計的 3D 列印收納方案。</p>
+              <span class="tag">PRODUCT DESIGN</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual"><span>PRODUCT / 002</span></div>
+            <div class="product-info">
+              <h3>生活創意擺飾</h3>
+              <p>結合造型與實用性，打造獨特的設計商品。</p>
+              <span class="tag">3D PRINTING</span>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-visual"><span>PRODUCT / 003</span></div>
+            <div class="product-info">
+              <h3>工業與功能零件</h3>
+              <p>針對特定需求開發的功能性零件與輔具。</p>
+              <span class="tag">FUNCTIONAL PARTS</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stl">
+      <div class="container">
+        <div class="stl-banner">
+          <div class="eyebrow">S.X DIGITAL MODEL STORE</div>
+          <h2>下載你的下一個創意。</h2>
+          <p>
+            這裡將提供世祥自行設計的 STL 數位模型，
+            未來可選購模型檔案、查看使用授權，
+            並下載適合 3D 列印的設計。
+          </p>
+          <span class="tag">STL STORE — COMING SOON</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">CONTACT S.X</div>
+          <h2>讓我們一起實現你的想法。</h2>
+          <p>
+            有 3D 列印、模型設計或產品開發需求嗎？
+            歡迎聯繫世祥企業社，討論適合你的解決方案。
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://github.com/SX-3D">GitHub ↗</a>
+          </div>
+          <p>正式聯絡方式將於後續版本加入。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> S.X 世祥企業社</span>
+      <span>3D PRINTING · PRODUCT DEVELOPMENT · DESIGN</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
